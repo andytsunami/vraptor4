@@ -1,4 +1,3 @@
-vraptor4
-========
+# VRaptor Produtos
 
-Curso de VRaptor 4 da Alura
+Projeto do curso online de VRaptor 4
