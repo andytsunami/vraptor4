@@ -5,11 +5,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap.min.css"/>
 		<title>Lista de produtos</title>
 	</head>
 	<body>
-		<h1>Lista de produtos</h1>
-		<table>
+		<h1 class=".h1">Lista de produtos</h1>
+		<table class="table table-stripped table-bordered table-hover">
 			<thead>
 				<tr>
 					<td>Nome</td>
