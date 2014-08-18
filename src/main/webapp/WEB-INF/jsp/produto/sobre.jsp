@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Insert title here</title>
+		<title>Sobre</title>
 	</head>
 	<body>
 		<h1>Esse é o projeto VRaptor-Produtos, criado por André</h1>
