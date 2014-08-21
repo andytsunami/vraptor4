@@ -39,7 +39,18 @@ public class ProdutoController {
 		em.getTransaction().begin();
 		produtoDao.adiciona(produto);
 		em.getTransaction().commit();
-		result.include("adiciona","ok");
+		result.include("retorno","adiciona");
 		result.redirectTo(this).lista();
  	}
+	
+	@Path("/produto/remove/{id}")
+	public void remove(Long id){
+		EntityManager em = JPAUtil.criaEntityManager();
+		ProdutoDao produtoDao = new ProdutoDao(em);
+		em.getTransaction().begin();
+		produtoDao.remove(id);
+		em.getTransaction().commit();
+		
+		result.include("retorno","remove").redirectTo(this).lista();
+	}
 }

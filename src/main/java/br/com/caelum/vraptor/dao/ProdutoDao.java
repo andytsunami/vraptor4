@@ -21,6 +21,10 @@ public class ProdutoDao {
 	public void remove(Produto produto) {
 		em.remove(busca(produto));
 	}
+	
+	public void remove(Long id){
+		em.remove(busca(id));
+	}
 
 	public Produto busca(Produto produto) {
 		return em.find(Produto.class, produto.getId());
@@ -29,5 +33,9 @@ public class ProdutoDao {
 	@SuppressWarnings("unchecked")
 	public List<Produto> lista() {
 		return em.createQuery("select p from Produto p").getResultList();
+	}
+	
+	public Produto busca(Long id){
+		return em.find(Produto.class, id);
 	}
 }

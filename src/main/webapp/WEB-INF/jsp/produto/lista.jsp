@@ -10,35 +10,43 @@
 		<title>Cadastro de produtos</title>
 	</head>
 	<body>
-		<h1 class=".h1">Lista de produtos</h1>
-		<c:if test="${adiciona eq 'ok'}">
-		<div class="alert alert-success">
-			<a href="#" class="close" data-dismiss="alert">&times;</a>
-		    <strong>Sucesso!</strong> Produto adicionado com sucesso!
+		<div class="container">
+			<h1 class=".h1">Lista de produtos</h1>
 		</div>
+		<c:if test="${retorno eq 'adiciona'}">
+			<pro:alerta mensagem="Produto adicionado com sucesso!" classe="alert-success"/>
+		</c:if>
+		<c:if test="${retorno eq 'remove'}">
+			<pro:alerta mensagem="Produto removido com sucesso!" classe="alert-warning"/>
 		</c:if>
 		<table class="table table-stripped table-bordered table-hover">
 			<thead>
 				<tr>
+					<td>ID</td>
 					<td>Nome</td>
 					<td>Valor</td>
 					<td>Quantidade</td>
+					<td>Remover</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${produtos}" var="p">
 					<tr>
+						<td>${p.id}</td>
 						<td>${p.nome}</td>
 						<td>${p.valor}</td>
 						<td>${p.quantidade}</td>
+						<td><a href="<c:url value='/produto/remove/${p.id}'/>">Remover</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 			<tfoot>
 				<tr>
+					<td>ID</td>
 					<td>Nome</td>
 					<td>Valor</td>
 					<td>Quantidade</td>
+					<td>Remover</td>
 				</tr>
 			</tfoot>
 		</table>
