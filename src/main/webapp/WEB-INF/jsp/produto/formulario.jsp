@@ -15,21 +15,15 @@
 			<form action="<c:url value='/produto/adiciona'/>" method="post">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Nome:</label>
-					<div class="col-sm-10">
-						<input type="text" name="produto.nome" value="${produto.nome}" class="form-control">
-					</div>
+					<input type="text" name="produto.nome" value="${produto.nome}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Valor:</label>
-					<div class="col-sm-10">
-						<input type="text" name="produto.valor" value="${produto.valor}" class="form-control">
-					</div>
+					<input type="text" name="produto.valor" value="${produto.valor}" class="form-control">
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Quantidade:</label>
-					<div class="col-sm-10">
-						<input type="text" name="produto.quantidade" value="${produto.quantidade}" class="form-control">
-					</div>
+					<input type="text" name="produto.quantidade" value="${produto.quantidade}" class="form-control">
 				</div><br />
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
