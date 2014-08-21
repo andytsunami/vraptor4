@@ -7,26 +7,34 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap-theme.min.css"/>
 		<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap.min.css"/>
-		<title>Lista de produtos</title>
+		<title>Cadastro de produtos</title>
 	</head>
 	<body>
 		<div class="container">
 			<h1 class=".h1">Cadastro de produtos</h1>
 			<form action="<c:url value='/produto/adiciona'/>" method="post">
-				<div>
-					<label>Nome:</label>
-					<input type="text" name="produto.nome" value="${produto.nome}" class="form-control">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nome:</label>
+					<div class="col-sm-10">
+						<input type="text" name="produto.nome" value="${produto.nome}" class="form-control">
+					</div>
 				</div>
-				<div>
-					<label>Valor:</label>
-					<input type="text" name="produto.valor" value="${produto.valor}" class="form-control">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Valor:</label>
+					<div class="col-sm-10">
+						<input type="text" name="produto.valor" value="${produto.valor}" class="form-control">
+					</div>
 				</div>
-				<div>
-					<label>Quantidade:</label>
-					<input type="text" name="produto.quantidade" value="${produto.quantidade}" class="form-control">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Quantidade:</label>
+					<div class="col-sm-10">
+						<input type="text" name="produto.quantidade" value="${produto.quantidade}" class="form-control">
+					</div>
 				</div><br />
-				<div>
-					<button type="submit" class="btn btn-primary">Adicionar</button>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Adicionar</button>
+					</div>
 				</div>
 			</form>
 		</div>
