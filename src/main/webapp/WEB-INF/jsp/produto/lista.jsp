@@ -7,6 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<pro:bootstrap/>
+		<link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 		<title>Cadastro de produtos</title>
 	</head>
 	<body>
@@ -50,5 +51,12 @@
 				</tr>
 			</tfoot>
 		</table>
+		<div id="footer">
+		      <div class="container">
+		        <p class="muted credit">
+		        	<a href='<c:url value="/produto/formulario"/>'>Adicionar produto</a>
+		        </p>
+		      </div>
+		</div>
 	</body>
 </html>

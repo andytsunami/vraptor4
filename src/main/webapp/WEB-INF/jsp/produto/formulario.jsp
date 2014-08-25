@@ -32,5 +32,12 @@
 				</div>
 			</form>
 		</div>
+		<div id="footer">
+		      <div class="container">
+		        <p class="muted credit">
+		        	<a href='<c:url value="/produto/lista"/>'>Listagem de produtos</a>
+		        </p>
+		      </div>
+		</div>
 	</body>
 </html>
