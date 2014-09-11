@@ -12,6 +12,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
 import br.com.caelum.vraptor.util.JPAUtil;
+import br.com.caelum.vraptor.view.Results;
 
 @Controller
 public class ProdutoController {
@@ -52,5 +53,12 @@ public class ProdutoController {
 		em.getTransaction().commit();
 		
 		result.include("retorno","remove").redirectTo(this).lista();
+	}
+	
+	@Path("/produto/lista/xml")
+	public void listaXml(){
+		ProdutoDao produtoDao = new ProdutoDao(JPAUtil.criaEntityManager());
+		List<Produto> produtos = produtoDao.lista();
+		result.use(Results.xml()).from(produtos).serialize();
 	}
 }
