@@ -3,6 +3,7 @@ package br.com.caelum.vraptor.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 
 @Entity
@@ -15,6 +16,7 @@ public class Produto {
 	
 	private Double valor;
 	
+	@Min(value = 1,message = "{produto.quantidade.vazio}")
 	private Integer quantidade;
 
 	public Produto() {
