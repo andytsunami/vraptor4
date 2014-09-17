@@ -6,11 +6,15 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
-//Walter hatsune miku Herondina Rodrigies De Almeida mangaká fanfic vocaloid bilieber selenator nyanyan cat watashi 4chan messi
+//Walter hatsune miku Herondina Rodrigies De Almeida mangaká fanfic vocaloid bilieber selenator nyanyan cat watashi 4chan messi bakabaka
 
 //treze doze onze dez nove oito sete seis cinco quatro tres dois um zero
 
+//Walter Hatsune Miku Herondina Rodrigies De Almeida Mangaká Fanfic Vocaloid Bilieber Selenator Nyanyan Cat Watashi 4chan Messi Bakura Sol Walter surviver
+
 public class TesteAbreviacao {
+	
+	int volta = 0;
 
 	public String abrevia(String nomeCompleto) {
 		Set<String> PREPOSICOES = new HashSet<String>(Arrays.asList(new String[] { "DA", "DOS", "DE", "DAS", "DO" }));
@@ -35,9 +39,9 @@ public class TesteAbreviacao {
 					nomeRetorno = limpaNome(nomeRetorno);
 				} else if (!PREPOSICOES.contains(partes[k].toUpperCase())) {
 					String nomeTeste = nomeRetorno + " " + partes[k] + " " + partes[partes.length - 1] + " " + abreviados;
-					if (nomeTeste.length() <= 40) {
+					if (nomeTeste.length() <= 37) {
 						nomeRetorno = nomeRetorno + " " + partes[k] + " ";
-					} else {
+					} else if(abreviados.length() < 10 && partes[k].length() > 1){
 						nomeRetorno = nomeRetorno + " " + partes[k].charAt(0) + " ";
 					}
 				}
@@ -47,8 +51,8 @@ public class TesteAbreviacao {
 			
 			if (nomeRetorno.length() > 40) {
 				System.out.println("Nome para o recursivo: " + nomeRetorno);
-				nomeRetorno = abrevia(nomeRetorno);
 				
+				nomeRetorno = abrevia(nomeRetorno);
 			}
 			return nomeRetorno;
 	}

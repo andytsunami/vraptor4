@@ -2,28 +2,42 @@ package br.com.caelum.vraptor.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.model.Produto;
-
+@Named
 public class ProdutoDao {
 
 	private final EntityManager em;
 
+	@Inject
 	public ProdutoDao(EntityManager em) {
 		this.em = em;
 	}
 	
-	public void adiciona(Produto produto) {
-		em.persist(produto);
+	public ProdutoDao() {
+		this(null);
 	}
+	
 
 	public void remove(Produto produto) {
+		em.getTransaction().begin();
 		em.remove(busca(produto));
+		em.getTransaction().commit();
+	}
+	
+	public void adiciona(Produto produto) {
+		em.getTransaction().begin();
+		em.persist(produto);
+		em.getTransaction().commit();
 	}
 	
 	public void remove(Long id){
+		em.getTransaction().begin();
 		em.remove(busca(id));
+		em.getTransaction().commit();
 	}
 
 	public Produto busca(Produto produto) {

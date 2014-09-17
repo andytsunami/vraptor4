@@ -1,6 +1,7 @@
 package br.com.caelum.vraptor.observers;
 
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.dao.ProdutoDao;
@@ -21,6 +22,11 @@ public class InitialDataObserver {
 	 *  
 	 * http://www.vraptor.org/pt/docs/eventos/
 	 */
+	
+	@Inject
+	private ProdutoDao produtoDao;
+	
+	
 	public void insert(@Observes VRaptorInitialized event) {
 		
 		EntityManager em = JPAUtil.criaEntityManager();
@@ -29,12 +35,12 @@ public class InitialDataObserver {
 		UsuarioDao usuarioDao = new UsuarioDao(em);
 		usuarioDao.salva(new Usuario("vraptor", "vraptor"));
 		
-		ProdutoDao produtoDao = new ProdutoDao(em);
-		produtoDao.adiciona(new Produto("DVD/Blu-ray Justin Bieber", 120.8, 2));
-		produtoDao.adiciona(new Produto("Carro de F1", 1.99, 5));
-		produtoDao.adiciona(new Produto("Livro da Casa do Código", 29.9, 10));
 		
 		em.getTransaction().commit();
 		em.close();
+		
+		produtoDao.adiciona(new Produto("DVD/Blu-ray Justin Bieber", 120.8, 2));
+		produtoDao.adiciona(new Produto("Carro de F1", 1.99, 5));
+		produtoDao.adiciona(new Produto("Livro da Casa do Código", 29.9, 10));
 	}	
 }
