@@ -10,6 +10,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
+import br.com.caelum.vraptor.validator.SimpleMessage;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
 @Controller
@@ -19,15 +21,18 @@ public class ProdutoController {
 	
 	private final ProdutoDao produtoDao;
 	
+	private final Validator validator;
+	
 	
 	@Inject
-	public ProdutoController(Result result, ProdutoDao produtoDao) {
+	public ProdutoController(Result result, ProdutoDao produtoDao, Validator validator) {
 		this.result = result;
 		this.produtoDao = produtoDao;
+		this.validator = validator;
 	}
 	
 	public ProdutoController() {
-		this(null,null);
+		this(null,null,null);
 	}
 
 	@Path("/produto/sobre")
@@ -44,6 +49,8 @@ public class ProdutoController {
 	
 	@Post("/produto/adiciona")
 	public void adiciona(Produto produto){
+		validator.check(produto.getQuantidade() > 1, new SimpleMessage("erro", "Não pode passar quantidade menor que 1"));
+
 		produtoDao.adiciona(produto);
 		result.include("retorno","adiciona");
 		result.redirectTo(this).lista();
