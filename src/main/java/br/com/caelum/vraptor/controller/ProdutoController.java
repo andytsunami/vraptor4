@@ -50,6 +50,8 @@ public class ProdutoController {
 	@Post("/produto/adiciona")
 	public void adiciona(Produto produto){
 		validator.check(produto.getQuantidade() > 1, new SimpleMessage("erro", "Não pode passar quantidade menor que 1"));
+		
+		validator.onErrorUsePageOf(this).formulario();
 
 		produtoDao.adiciona(produto);
 		result.include("retorno","adiciona");
