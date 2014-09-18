@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.caelum.vraptor.validator.annotation.MinDouble;
 
 
 @Entity
@@ -12,8 +17,11 @@ public class Produto {
 	@GeneratedValue @Id
 	private Long id;
 
+	@NotEmpty(message = "{produto.nome.vazio}")
+	@NotNull(message = "{produto.nome.nulo}")
 	private String nome;
 	
+	@MinDouble(value=0,message= "Valor menor que zero")
 	private Double valor;
 	
 	@Min(value = 1,message = "{produto.quantidade.vazio}")
