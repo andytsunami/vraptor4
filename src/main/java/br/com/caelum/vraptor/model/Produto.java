@@ -21,7 +21,7 @@ public class Produto {
 	@NotNull(message = "{produto.nome.nulo}")
 	private String nome;
 	
-	@MinDouble(value=0,message= "Valor menor que zero")
+	@MinDouble(value=0,message= "{produto.quantidade.negativo}")
 	private Double valor;
 	
 	@Min(value = 1,message = "{produto.quantidade.vazio}")
