@@ -27,10 +27,10 @@
 						<form method="get" id="form">
 							<fieldset>
 								<div class="clearfix">
-									<input type="text" placeholder="Usuario">
+									<input type="text" placeholder="Usuario" name="usuario.nome">
 								</div>
 								<div class="clearfix">
-									<input type="password" placeholder="Senha"/>
+									<input type="password" placeholder="Senha" name="usuario.senha"/>
 								</div>
 								<button class="btn btn-primary" type="button">Logar</button>
 							</fieldset>
