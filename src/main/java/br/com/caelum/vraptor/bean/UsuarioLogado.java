@@ -7,7 +7,7 @@ import javax.inject.Named;
 
 import br.com.caelum.vraptor.model.Usuario;
 
-@Named
+@Named("logado")
 @SessionScoped
 public class UsuarioLogado implements Serializable{
 

@@ -1,8 +1,10 @@
 <%@tag description="Importa estilos e Js do Twitter Bootstrap" pageEncoding="UTF-8" %>
-<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap-theme.min.css"/>
-		<link rel="stylesheet" type="text/css" href="/vraptor-produtos/resources/bootstrap/css/bootstrap.min.css"/>
-		<script type="text/javascript" src="/vraptor-produtos/resources/bootstrap/js/jquery-2.1.1.min.js" charset="utf-8"></script>
-		<script type="text/javascript" src="/vraptor-produtos/resources/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+		<link rel="stylesheet" type="text/css" href="<c:url value='/resources/bootstrap/css/bootstrap-theme.min.css'/>"/>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>"/>
+		<script type="text/javascript" src="<c:url value='/resources/bootstrap/js/jquery-2.1.1.min.js'/>" charset="utf-8"></script>
+		<script type="text/javascript" src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>" charset="utf-8"></script>
 		<style type="text/css" >
 			.alert-success {
 				color: #468847;

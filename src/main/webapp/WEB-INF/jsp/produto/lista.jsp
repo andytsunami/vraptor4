@@ -8,11 +8,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<pro:bootstrap/>
 		<link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-		<title>Cadastro de produtos</title>
+		<title>Cadastro de produtos do ${logado.usuario.nome}</title>
 	</head>
 	<body>
 		<div class="container">
-			<h1 class=".h1">Lista de produtos</h1>
+			<h1 class=".h1">Lista de produtos do ${logado.usuario.nome}</h1>
 		</div>
 		<c:if test="${retorno eq 'adiciona'}">
 			<pro:alerta mensagem="Produto adicionado com sucesso!" classe="alert-success"/>

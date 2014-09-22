@@ -9,6 +9,7 @@
 		<pro:bootstrap/>
 		<link href="http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 		<link href="<c:url value='/resources/css/login.css'/>" rel="stylesheet"/>
+		<script type="text/javascript" src="<c:url value='/resources/js/login.js'/>" charset="utf-8"></script>
 		<title>Login</title>
 	</head>
 	<body>
@@ -24,7 +25,7 @@
 				<div class="row">
 					<div class="login-form">
 						<h2>Login</h2>
-						<form method="get" id="form">
+						<form method="post" id="form">
 							<fieldset>
 								<div class="clearfix">
 									<input type="text" placeholder="Usuario" name="usuario.nome">
@@ -32,7 +33,7 @@
 								<div class="clearfix">
 									<input type="password" placeholder="Senha" name="usuario.senha"/>
 								</div>
-								<button class="btn btn-primary" type="button">Logar</button>
+								<button class="btn btn-primary" type="button" id="logar">Logar</button>
 							</fieldset>
 						</form>
 					</div>
