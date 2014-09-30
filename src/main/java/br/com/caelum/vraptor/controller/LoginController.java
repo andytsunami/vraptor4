@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.annotation.Publico;
 import br.com.caelum.vraptor.bean.UsuarioLogado;
 import br.com.caelum.vraptor.dao.UsuarioDao;
 import br.com.caelum.vraptor.model.Usuario;
@@ -35,11 +36,13 @@ public class LoginController {
 		this(null,null,null,null);
 	}
 	
+	@Publico
 	@Path("/login/formulario")
 	public void formulario(){
 		
 	}
 	
+	@Publico
 	@Post("/login/autentica")
 	public void autentica(Usuario usuario){
 		if(!usuarioDao.existe(usuario)){
