@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.annotation.Transacional;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
 import br.com.caelum.vraptor.validator.Validator;
@@ -46,17 +47,26 @@ public class ProdutoController {
 	
 	@Path("/produto/formulario")
 	public void formulario(){};
-	
+
 	@Post("/produto/adiciona")
+	@Transacional
 	public void adiciona(@Valid Produto produto){
-		
 		validator.onErrorUsePageOf(this).formulario();
-		
 		produtoDao.adiciona(produto);
 		result.include("retorno","adiciona");
 		result.redirectTo(this).lista();
  	}
 	
+	public void teste(){
+		result.forwardTo(this).bada();
+	}
+	
+	@Path("/produto/bada")
+	public void bada(){
+		
+	}
+	
+	@Transacional
 	@Path("/produto/remove/{id}")
 	public void remove(Long id){
 		produtoDao.remove(id);
