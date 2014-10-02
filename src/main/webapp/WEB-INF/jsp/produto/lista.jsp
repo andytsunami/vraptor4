@@ -28,6 +28,7 @@
 					<td>Valor</td>
 					<td>Quantidade</td>
 					<td>Remover</td>
+					<td>Pedir mais itens!</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,6 +39,7 @@
 						<td>${p.valor}</td>
 						<td>${p.quantidade}</td>
 						<td><a href="<c:url value='/produto/remove/${p.id}'/>">Remover</a></td>
+						<td><a href="<c:url value='/produto/pedir/${p.id}'/>">Pedir mais itens!</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -48,6 +50,7 @@
 					<td>Valor</td>
 					<td>Quantidade</td>
 					<td>Remover</td>
+					<td>Pedir mais itens!</td>
 				</tr>
 			</tfoot>
 		</table>

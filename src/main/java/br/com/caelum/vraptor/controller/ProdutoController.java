@@ -1,17 +1,23 @@
 package br.com.caelum.vraptor.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.apache.commons.mail.HtmlEmail;
+
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.annotation.Transacional;
 import br.com.caelum.vraptor.dao.ProdutoDao;
 import br.com.caelum.vraptor.model.Produto;
+import br.com.caelum.vraptor.simplemail.Mailer;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
 
@@ -24,16 +30,19 @@ public class ProdutoController {
 	
 	private final Validator validator;
 	
+	private final Mailer mailer;
+	
 	
 	@Inject
-	public ProdutoController(Result result, ProdutoDao produtoDao, Validator validator) {
+	public ProdutoController(Result result, ProdutoDao produtoDao, Validator validator,Mailer mailer) {
 		this.result = result;
 		this.produtoDao = produtoDao;
 		this.validator = validator;
+		this.mailer = mailer;
 	}
 	
 	public ProdutoController() {
-		this(null,null,null);
+		this(null,null,null,null);
 	}
 
 	@Path("/produto/sobre")
@@ -57,14 +66,6 @@ public class ProdutoController {
 		result.redirectTo(this).lista();
  	}
 	
-	public void teste(){
-		result.forwardTo(this).bada();
-	}
-	
-	@Path("/produto/bada")
-	public void bada(){
-		
-	}
 	
 	@Transacional
 	@Path("/produto/remove/{id}")
@@ -78,5 +79,19 @@ public class ProdutoController {
 	public void listaXml(){
 		List<Produto> produtos = produtoDao.lista();
 		result.use(Results.xml()).from(produtos).serialize();
+	}
+	
+	@Get("/produto/pedir/{idProduto}")
+	public void enviaPedidoDeNovosItens(Long idProduto) throws Exception{
+		Produto produto = produtoDao.busca(idProduto);
+		HtmlEmail email = new HtmlEmail();
+		email.setSubject("[vraptor-produtos] Precisamos de mais bacon" + produto.getId());
+		email.addTo("andytsunami@gmail.com");
+		String corpo = new Scanner(new File("/home/vasconcelos/workspace/vraptor4/corpoEmail.html")).useDelimiter("\\Z").next();
+		
+		email.setHtmlMsg(corpo);
+		mailer.send(email);
+		result.redirectTo(this).lista();
+		
 	}
 }
