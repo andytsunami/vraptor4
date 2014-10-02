@@ -87,9 +87,12 @@ public class ProdutoController {
 		HtmlEmail email = new HtmlEmail();
 		email.setSubject("[vraptor-produtos] Precisamos de mais bacon" + produto.getId());
 		email.addTo("andytsunami@gmail.com");
+		//Conferir o caminho deste arquivo.
 		String corpo = new Scanner(new File("/home/vasconcelos/workspace/vraptor4/corpoEmail.html")).useDelimiter("\\Z").next();
 		
 		email.setHtmlMsg(corpo);
+		
+		//Conferir a senha do email no arquivo production.properties
 		mailer.send(email);
 		result.redirectTo(this).lista();
 		
